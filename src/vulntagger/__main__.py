@@ -31,6 +31,26 @@ def main():
         title="VulnTagger",
         storage_secret=secrets.token_urlsafe(16),
         show=False,
+        uvicorn_logging_level="info",
+        log_config={
+            "version": 1,
+            "disable_existing_loggers": False,
+            "handlers": {
+                "console": {
+                    "class": "rich.logging.RichHandler",
+                    "formatter": "console",
+                },
+            },
+            "formatters": {
+                "console": {
+                    "format": "%(message)s",
+                },
+            },
+            "root": {
+                "level": "DEBUG",
+                "handlers": ["console"],
+            },
+        },
         access_log=True,
     )
 
