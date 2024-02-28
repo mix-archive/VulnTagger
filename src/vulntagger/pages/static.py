@@ -97,7 +97,7 @@ class RangedFileResponse(FileResponse):
 @app.get("/static/{file_path:path}", include_in_schema=False)
 async def static(file_path: str):
     # Pathlib is very secure and should prevent path traversal attacks
-    static_file = (STATIC_PATH / file_path).relative_to(os.getcwd())
+    static_file = STATIC_PATH / file_path
 
     if not static_file.exists():
         raise HTTPException(
