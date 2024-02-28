@@ -6,7 +6,7 @@ authors = [{ name = "Mix", email = "32300164+mnixry@users.noreply.github.com" }]
 dependencies = [
     "torch>=2.2.1",
     "fastapi>=0.109.2",
-    "nicegui>=1.4.17",
+    "nicegui[highcharts]>=1.4.17",
     "numpy>=1.26.4",
     "rich>=13.7.0",
     "pillow>=10.2.0",

@@ -2,10 +2,10 @@
 # It is not intended for manual editing.
 
 [metadata]
-groups = ["default", "dev"]
+groups = ["default"]
 strategy = ["cross_platform", "inherit_metadata"]
 lock_version = "4.4.1"
-content_hash = "sha256:d66964155f5f4f785e02ecf0032f9f4e387a75de0cf79dec413ecab74e01dcd1"
+content_hash = "sha256:bf909b9ee250aa22905b2ad16997b3ddf4e008ba941f9037f41db4bf573fb71d"
 
 [[package]]
 name = "aiofiles"
@@ -520,6 +520,36 @@ dependencies = [
     "uvicorn[standard]>=0.22.0",
     "vbuild>=0.8.2",
     "watchfiles>=0.18.1",
+]
+files = [
+    {file = "nicegui-1.4.17-py3-none-any.whl", hash = "sha256:33d14d2eeb98de7e8ac387abe6315a4ce6ff1045d4156bb5c853ce8b9c57e53d"},
+    {file = "nicegui-1.4.17.tar.gz", hash = "sha256:81a939d4f3a8e4fcf507e32091d1c150b031acb1da0ea484ec5206d682214211"},
+]
+
+[[package]]
+name = "nicegui-highcharts"
+version = "1.0.1"
+requires_python = ">=3.8,<4.0"
+summary = "Add Highcharts elements to your NiceGUI app."
+groups = ["default"]
+dependencies = [
+    "nicegui<2.0.0,>=1.4.0",
+]
+files = [
+    {file = "nicegui_highcharts-1.0.1-py3-none-any.whl", hash = "sha256:7f4aed5146024ddea225bf901d83ee43a1970cc3050516513e74ee8cc3464213"},
+    {file = "nicegui_highcharts-1.0.1.tar.gz", hash = "sha256:810813adbd6dbb7f51d199c016a5d97aa293f16eeb5046574890700cea38924c"},
+]
+
+[[package]]
+name = "nicegui"
+version = "1.4.17"
+extras = ["highcharts"]
+requires_python = ">=3.8,<4.0"
+summary = "Create web-based user interfaces with Python. The nice way."
+groups = ["default"]
+dependencies = [
+    "nicegui-highcharts<2.0.0,>=1.0.1",
+    "nicegui==1.4.17",
 ]
 files = [
     {file = "nicegui-1.4.17-py3-none-any.whl", hash = "sha256:33d14d2eeb98de7e8ac387abe6315a4ce6ff1045d4156bb5c853ce8b9c57e53d"},
