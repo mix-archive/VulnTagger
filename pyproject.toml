@@ -11,6 +11,7 @@ dependencies = [
     "rich>=13.7.0",
     "pillow>=10.2.0",
     "python-dotenv>=1.0.1",
+    "MonkeyType>=23.3.0",          # for profile-driven optimization
 ]
 requires-python = ">=3.11"
 readme = "README.md"

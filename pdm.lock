@@ -5,7 +5,7 @@
 groups = ["default"]
 strategy = ["cross_platform", "inherit_metadata"]
 lock_version = "4.4.1"
-content_hash = "sha256:bf909b9ee250aa22905b2ad16997b3ddf4e008ba941f9037f41db4bf573fb71d"
+content_hash = "sha256:23654083d7c11d36b5320f3aeb5e702b7c0996e81b203b81b748051547ecfbf4"
 
 [[package]]
 name = "aiofiles"
@@ -369,6 +369,33 @@ files = [
 ]
 
 [[package]]
+name = "libcst"
+version = "1.2.0"
+requires_python = ">=3.9"
+summary = "A concrete syntax tree with AST-like properties for Python 3.0 through 3.12 programs."
+groups = ["default"]
+dependencies = [
+    "pyyaml>=5.2",
+    "typing-extensions>=3.7.4.2",
+    "typing-inspect>=0.4.0",
+]
+files = [
+    {file = "libcst-1.2.0-cp311-cp311-macosx_10_9_x86_64.whl", hash = "sha256:f080e9af843ff609f8f35fc7275c8bf08b02c31115e7cd5b77ca3b6a56c75096"},
+    {file = "libcst-1.2.0-cp311-cp311-macosx_11_0_arm64.whl", hash = "sha256:3c7c0edfe3b878d64877671261c7b3ffe9d23181774bfad5d8fcbdbbbde9f064"},
+    {file = "libcst-1.2.0-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:1b5fecb2b26fa3c1efe6e05ef1420522bd31bb4dae239e4c41fdf3ddbd853aeb"},
+    {file = "libcst-1.2.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:968b93400e66e6711a29793291365e312d206dbafd3fc80219cfa717f0f01ad5"},
+    {file = "libcst-1.2.0-cp311-cp311-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:e01879aa8cd478bb8b1e4285cfd0607e64047116f7ab52bc2a787cde584cd686"},
+    {file = "libcst-1.2.0-cp311-cp311-win_amd64.whl", hash = "sha256:b4066dcadf92b183706f81ae0b4342e7624fc1d9c5ca2bf2b44066cb74bf863f"},
+    {file = "libcst-1.2.0-cp312-cp312-macosx_10_9_x86_64.whl", hash = "sha256:5c0d548d92c6704bb07ce35d78c0e054cdff365def0645c1b57c856c8e112bb4"},
+    {file = "libcst-1.2.0-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:82373a35711a8bb2a664dba2b7aeb20bbcce92a4db40af964e9cb2b976f989e7"},
+    {file = "libcst-1.2.0-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:0cb92398236566f0b73a0c73f8a41a9c4906c793e8f7c2745f30e3fb141a34b5"},
+    {file = "libcst-1.2.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:13ca9fe82326d82feb2c7b0f5a320ce7ed0d707c32919dd36e1f40792459bf6f"},
+    {file = "libcst-1.2.0-cp312-cp312-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:dded0e4f2e18150c4b07fedd7ef84a9abc7f9bd2d47cc1c485248ee1ec58e5cc"},
+    {file = "libcst-1.2.0-cp312-cp312-win_amd64.whl", hash = "sha256:dece0362540abfc39cd2cf5c98cde238b35fd74a1b0167e2563e4b8bb5f47489"},
+    {file = "libcst-1.2.0.tar.gz", hash = "sha256:71dd69fff76e7edaf8fae0f63ffcdbf5016e8cd83165b1d0688d6856aa48186a"},
+]
+
+[[package]]
 name = "markdown-it-py"
 version = "3.0.0"
 requires_python = ">=3.8"
@@ -435,6 +462,21 @@ files = [
 ]
 
 [[package]]
+name = "monkeytype"
+version = "23.3.0"
+requires_python = ">=3.7"
+summary = "Generating type annotations from sampled production types"
+groups = ["default"]
+dependencies = [
+    "libcst>=0.4.4",
+    "mypy-extensions",
+]
+files = [
+    {file = "MonkeyType-23.3.0-py3-none-any.whl", hash = "sha256:38ce8ad6568190f54c334b9fe835608af29b40a33ad448ecae749ae8790cdbf9"},
+    {file = "MonkeyType-23.3.0.tar.gz", hash = "sha256:f2595db34d57cdddbde5a990117a50a22f373dbb917a2a0fa91ffbe07dfe0313"},
+]
+
+[[package]]
 name = "mpmath"
 version = "1.3.0"
 summary = "Python library for arbitrary-precision floating-point arithmetic"
@@ -483,6 +525,17 @@ files = [
     {file = "multidict-6.0.5-cp312-cp312-win_amd64.whl", hash = "sha256:01265f5e40f5a17f8241d52656ed27192be03bfa8764d88e8220141d1e4b3556"},
     {file = "multidict-6.0.5-py3-none-any.whl", hash = "sha256:0d63c74e3d7ab26de115c49bffc92cc77ed23395303d496eae515d4204a625e7"},
     {file = "multidict-6.0.5.tar.gz", hash = "sha256:f7e301075edaf50500f0b341543c41194d8df3ae5caf4702f2095f3ca73dd8da"},
+]
+
+[[package]]
+name = "mypy-extensions"
+version = "1.0.0"
+requires_python = ">=3.5"
+summary = "Type system extensions for programs checked with the mypy type checker."
+groups = ["default"]
+files = [
+    {file = "mypy_extensions-1.0.0-py3-none-any.whl", hash = "sha256:4392f6c0eb8a5668a69e23d168ffa70f0be9ccfd32b5cc2d26a34ae5b844552d"},
+    {file = "mypy_extensions-1.0.0.tar.gz", hash = "sha256:75dbf8955dc00442a438fc4d0666508a9a97b6bd41aa2f0ffe9d2f2725af0782"},
 ]
 
 [[package]]
@@ -948,6 +1001,20 @@ groups = ["default"]
 files = [
     {file = "typing_extensions-4.10.0-py3-none-any.whl", hash = "sha256:69b1a937c3a517342112fb4c6df7e72fc39a38e7891a5730ed4985b5214b5475"},
     {file = "typing_extensions-4.10.0.tar.gz", hash = "sha256:b0abd7c89e8fb96f98db18d86106ff1d90ab692004eb746cf6eda2682f91b3cb"},
+]
+
+[[package]]
+name = "typing-inspect"
+version = "0.9.0"
+summary = "Runtime inspection utilities for typing module."
+groups = ["default"]
+dependencies = [
+    "mypy-extensions>=0.3.0",
+    "typing-extensions>=3.7.4",
+]
+files = [
+    {file = "typing_inspect-0.9.0-py3-none-any.whl", hash = "sha256:9ee6fc59062311ef8547596ab6b955e1b8aa46242d854bfc78f4f6b0eff35f9f"},
+    {file = "typing_inspect-0.9.0.tar.gz", hash = "sha256:b23fc42ff6f6ef6954e4852c1fb512cdd18dbea03134f91f856a95ccc9461f78"},
 ]
 
 [[package]]
