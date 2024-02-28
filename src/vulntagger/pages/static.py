@@ -39,13 +39,11 @@ class RangedFileResponse(FileResponse):
                     raise RuntimeError(f"File at path {self.path} is not a file.")
 
         range_info = self.process_range_header(scope)
-        random_accessible = (
-            self.stat_result.st_size > 0
-            and await anyio.to_thread.run_sync(
-                lambda path: os.path.isfile(path) and os.access(path, os.R_OK),
-                self.path,
-            )
+        random_accessible = await anyio.to_thread.run_sync(
+            lambda path: os.path.isfile(path) and os.access(path, os.R_OK),
+            self.path,
         )
+
         if random_accessible:
             self.headers.setdefault("accept-ranges", "bytes")
 
@@ -79,7 +77,7 @@ class RangedFileResponse(FileResponse):
                 while more_body:
                     chunk = await file.read(self.chunk_size)
                     position += len(chunk)
-                    if position > end:
+                    if range_info and position >= end:
                         chunk = chunk[: end - position]
                         more_body = False  # If we're at the end of the range
                     elif len(chunk) < self.chunk_size:
