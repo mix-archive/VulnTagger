@@ -45,11 +45,11 @@ class ModelLoader:
         model.eval()
 
         type(self).current_active = self
-        self.compiled_model = torch.compile(model)
         self.tags = model.tags
 
         logger.debug("Model loaded, test predicting ...")
         test_tensor = torch.rand(1, 512, 512, 3)
+        self.compiled_model = torch.jit.script(model, example_inputs=[(test_tensor,)])  # type: ignore
         self._predict(test_tensor)
         logger.debug("Model test passed")
 
