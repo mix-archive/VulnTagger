@@ -1,10 +1,10 @@
 import functools
 import hashlib
 import time
-from ast import TypeVar
+from collections.abc import Callable
 from logging import getLogger
 from secrets import token_urlsafe
-from types import FunctionType
+from typing import Literal, ParamSpec, TypeVar
 
 from httpx import Client
 from rich.logging import RichHandler
@@ -15,12 +15,13 @@ logger.setLevel("DEBUG")
 
 client = Client(base_url="http://localhost:8080")
 
-_FT = TypeVar("_FT", bound=FunctionType)
+_PS = ParamSpec("_PS")
+_R = TypeVar("_R")
 
 
-def catch_exception(func: _FT) -> _FT:  # type: ignore
+def catch_exception(func: Callable[_PS, _R]) -> Callable[_PS, _R | Literal[False]]:
     @functools.wraps(func)
-    def wrapper(*args, **kwargs):
+    def wrapper(*args: _PS.args, **kwargs: _PS.kwargs) -> _R | Literal[False]:
         try:
             return func(*args, **kwargs)
         except Exception as e:
