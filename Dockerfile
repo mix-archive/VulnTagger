@@ -1,3 +1,18 @@
+FROM alpine:latest as source
+
+RUN apk add --no-cache git
+
+COPY . /project
+WORKDIR /project
+
+# Remove git history and create a new commit
+RUN rm -rvf .git && \
+    git init && \
+    git add . && \
+    git config user.email "32300164+mnixry@users.noreply.github.com" && \
+    git config user.name "Mix" && \
+    git commit -m "Initial commit"
+
 FROM python:bookworm
 
 RUN mkdir -p /app/checkpoints && \
@@ -8,7 +23,7 @@ WORKDIR /app
 RUN cd ./checkpoints && \
     wget https://github.com/AUTOMATIC1111/TorchDeepDanbooru/releases/download/v1/model-resnet_custom_v3.pt
 
-COPY . /app
+COPY --from=source /project /app
 RUN --mount=type=cache,target=/root/.cache/pip \
     pip install torch --index-url https://download.pytorch.org/whl/cpu && \
     pip install -e . && \
