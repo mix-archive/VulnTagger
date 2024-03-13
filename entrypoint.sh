@@ -12,8 +12,10 @@ unset FLAG
 chown bot:bot /flag
 chmod 400 /flag
 
-su app -c 'python -m vulntagger' &
-su bot -c 'python /app/bot.py'
+# Terminate the processes after 15 minutes
+timeout 15m su app -c 'python -m vulntagger' &
+timeout 15m su bot -c 'python /app/bot.py' &
+sleep 15m
 
-# Kill all processes
+# Kill all processes still running
 kill -9 -1
