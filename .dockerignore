@@ -3,6 +3,7 @@ Dockerfile
 docker-compose.yml
 Dockerfile.*
 docker/*
+logs/*
 
 # Checkpoint files
 checkpoints/*.pt
