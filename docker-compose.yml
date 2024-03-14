@@ -1,6 +1,9 @@
+name: vulntagger
+
 services:
   app:
     build: .
+    image: vulntagger
     ports:
       - "${PORT}:8080"
     environment:
