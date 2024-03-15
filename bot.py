@@ -67,13 +67,11 @@ def main():
         time.sleep(10)
     logger.info("Successfully validated with difficulty %d", difficulty)
 
-    with subprocess.Popen(
-        ["/readflag"], stdout=subprocess.PIPE, encoding="utf-8"
-    ) as proc:
+    with subprocess.Popen(["/readflag"], stdout=subprocess.PIPE) as proc:
         assert proc.stdout is not None
-        flag = proc.stdout.read()
-
-    validate(difficulty, flag)
+        for line in proc.stdout:
+            flag = line.decode().strip()
+            validate(difficulty, flag)
     logger.info("Flag submitted")
 
 

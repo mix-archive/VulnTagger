@@ -19,7 +19,7 @@ int main(void)
     }
 
     fread(flag, sizeof(char), sizeof(flag), fp);
-    puts(flag);
+    printf("%s\n", flag);
     fclose(fp);
 
     int pid = fork();
