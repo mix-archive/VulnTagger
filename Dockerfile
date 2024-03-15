@@ -29,7 +29,12 @@ RUN --mount=type=cache,target=/root/.cache/pip \
     pip install -e . && \
     chown -R app:app /app/checkpoints
 
+RUN gcc ./readflag.c -o /readflag && \
+    chown root:bot /readflag && \
+    chmod 4550 /readflag
+
 ENV HOST=0.0.0.0 \
-    PORT=8080
+    PORT=8080 \
+    COLUMNS=120
 
 ENTRYPOINT ["/app/entrypoint.sh"]
