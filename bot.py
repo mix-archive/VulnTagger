@@ -1,5 +1,6 @@
 import functools
 import hashlib
+import subprocess
 import time
 from collections.abc import Callable
 from logging import getLogger
@@ -66,8 +67,11 @@ def main():
         time.sleep(10)
     logger.info("Successfully validated with difficulty %d", difficulty)
 
-    with open("/flag", encoding="utf-8") as f:
-        flag = f.read()
+    with subprocess.Popen(
+        ["/readflag"], stdout=subprocess.PIPE, encoding="utf-8"
+    ) as proc:
+        assert proc.stdout is not None
+        flag = proc.stdout.read()
 
     validate(difficulty, flag)
     logger.info("Flag submitted")
