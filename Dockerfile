@@ -37,4 +37,7 @@ ENV HOST=0.0.0.0 \
     PORT=8080 \
     COLUMNS=120
 
+HEALTHCHECK --interval=20s --timeout=6s \
+    CMD curl --fail --max-time 5 http://localhost:${PORT}/ || kill -9 -1
+
 ENTRYPOINT ["/app/entrypoint.sh"]
