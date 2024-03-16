@@ -110,4 +110,10 @@ async def static(file_path: str):
             status_code=403, detail=f"File {static_file.name} is not a file."
         )
 
-    return RangedFileResponse(static_file, stat_result=file_stat)
+    return RangedFileResponse(
+        static_file,
+        stat_result=file_stat,
+        headers={
+            "cache-control": "public, max-age=3600",
+        },
+    )
