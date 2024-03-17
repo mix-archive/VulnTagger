@@ -30,14 +30,14 @@ RUN --mount=type=cache,target=/root/.cache/pip \
     chown -R app:app /app/checkpoints
 
 RUN gcc ./readflag.c -o /readflag && \
+    gcc ./restart.c -o /restart && \
     chown root:bot /readflag && \
-    chmod 4550 /readflag
+    chown root:bot /restart && \
+    chmod 4550 /readflag && \
+    chmod 4550 /restart
 
 ENV HOST=0.0.0.0 \
     PORT=8080 \
     COLUMNS=120
-
-HEALTHCHECK --interval=20s --timeout=6s \
-    CMD curl --fail --max-time 5 http://localhost:${PORT}/ || kill -9 -1
 
 ENTRYPOINT ["/app/entrypoint.sh"]

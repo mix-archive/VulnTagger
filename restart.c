@@ -10,17 +10,13 @@ int main(void)
         return 1;
     }
 
-    char flag[256] = {0};
-    FILE *fp = fopen("/flag", "r");
-    if (!fp)
+    int ret = kill(-1, SIGKILL);
+
+    if (ret < 0)
     {
-        perror("fopen");
+        perror("kill");
         return 1;
     }
-
-    fread(flag, sizeof(char), sizeof(flag), fp);
-    puts(flag);
-    fclose(fp);
 
     return 0;
 }
